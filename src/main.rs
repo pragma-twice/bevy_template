@@ -3,7 +3,7 @@
 pub mod random;
 
 use bevy::prelude::*;
-use random::RandomnessPlugin;
+use random::randomness_plugin;
 
 
 fn main() {
@@ -19,7 +19,7 @@ fn main() {
     ));
 
     // Internal Plugins
-    app.add_plugins((RandomnessPlugin));
+    app.add_plugins((randomness_plugin));
 
     app.run();
 }

@@ -2,17 +2,13 @@ use bevy::prelude::*;
 pub use rand::SeedableRng;
 pub use rand_chacha::ChaCha8Rng;
 
-pub(super) struct RandomnessPlugin;
-
-impl Plugin for RandomnessPlugin {
-    fn build(&self, app: &mut App) {
-        app.insert_resource(GlobalRng(ChaCha8Rng::seed_from_u64(
-            web_time::SystemTime::now()
-                .duration_since(web_time::UNIX_EPOCH)
-                .expect("time should go forward")
-                .as_secs(),
-        )));
-    }
+pub(super) fn randomness_plugin(&self, app: &mut App) {
+    app.insert_resource(GlobalRng(ChaCha8Rng::seed_from_u64(
+        web_time::SystemTime::now()
+            .duration_since(web_time::UNIX_EPOCH)
+            .expect("time should go forward")
+            .as_secs(),
+    )));
 }
 
 #[derive(Resource, Deref, DerefMut)]
