@@ -9,10 +9,7 @@ edition = "2024"
 [dependencies]
 bevy = "0.19"
 bevy_asset_loader = { version = "0.27", features = ["2d"] }
-rand = { version = "0.10", features = [] }
-rand_chacha = "0.10"
-getrandom = { version = "0.4", features = ["wasm_js"] }
-web-time = "1.1"
+bevy_simple_random = "1.0"
 
 [target.'cfg(not(target_family = "wasm"))'.dependencies]
 bevy_remote = { version = "0.19", optional = true }
